@@ -38,82 +38,55 @@ Improve healthcare scheduling efficiency by predicting no-show behavior.
 #### Dataset
 Brazilian Medical Appointment Dataset
 
-Technologies
-
+####Technologies
 Python
-
 Scikit-Learn
-
 Pandas
-
 Matplotlib
-
 Main Results
 
-Models evaluated using ROC-AUC and PR-AUC
-
+#### Models evaluated using ROC-AUC and PR-AUC
 Feature importance analysis performed with permutation importance
 
-2. Invoice Field Extraction using Deep Learning
+### 2. Invoice Field Extraction using Deep Learning
 
-Description
+##### Description
 Deep learning system that extracts key information from invoices using semantic segmentation and OCR.
 
-Objective
+#### Objective
 Automatically detect and extract fields such as company name, date, address, and total amount.
 
-Dataset
+#### Dataset
 ICDAR 2019 SROIE
 
-Technologies
-
+#### Technologies
 PyTorch
-
 U-Net
-
 EasyOCR
-
 OpenCV
 
-Main Results
-
+#### Main Results
 Successful segmentation of invoice fields
-
 OCR extraction integrated into a working demo
 
-Technologies Used
-
+## Technologies Used
 Python
-
 PyTorch
-
 Scikit-Learn
-
 Pandas
-
 NumPy
-
 Matplotlib
-
 OpenCV
-
 EasyOCR
-
 Jupyter Notebook
 
-How to Run the Projects
-
+## How to Run the Projects
 Clone the repository
-
 git clone https://github.com/yourusername/ai-projects.git
-
 Install dependencies
-
 pip install -r requirements.txt
-
 Open the notebooks in Jupyter or Google Colab and run the cells.
 
-Author
-
+## Author
 Camilo Castellano
 Software Developer | AI & Machine Learning Student
