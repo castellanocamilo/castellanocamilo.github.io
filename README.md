@@ -4,7 +4,7 @@ This repository contains a collection of projects developed during my Artificial
 
 Each project focuses on solving a specific problem using modern AI tools and includes notebooks, datasets (or dataset references), and documentation of the results.
 
-Repository Structure
+## Repository Structure
 
 Each folder corresponds to a different project and contains the code, documentation, and resources required to reproduce the results.
 
@@ -25,16 +25,17 @@ ai-projects/
 └── project_3_regression/
     ├── notebook.ipynb
     └── README.md
-Projects
-1. Medical Appointment No-Show Prediction
 
-Description
+## Projects
+### 1. Medical Appointment No-Show Prediction
+
+#### Description
 Machine learning model to predict whether a patient will miss a medical appointment.
 
-Objective
+#### Objective
 Improve healthcare scheduling efficiency by predicting no-show behavior.
 
-Dataset
+#### Dataset
 Brazilian Medical Appointment Dataset
 
 Technologies
