@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camilo Castellano | Portafolio de IA</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121933;
+      --panel-2: #1a2242;
+      --text: #e8ecf8;
+      --muted: #aeb8d3;
+      --accent: #5eead4;
+      --accent-2: #60a5fa;
+      --line: rgba(255,255,255,0.08);
+      --shadow: 0 20px 50px rgba(0,0,0,0.28);
+      --radius: 22px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(96,165,250,0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(94,234,212,0.14), transparent 22%),
+        linear-gradient(180deg, #0b1020 0%, #0f1530 100%);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(11,16,32,0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #08101f;
+      font-weight: 800;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      padding: 72px 0 36px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      padding: 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(94,234,212,0.09);
+      color: var(--accent);
+      border: 1px solid rgba(94,234,212,0.18);
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 { margin: 0 0 16px; line-height: 1.15; }
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 4.3rem);
+      letter-spacing: -0.04em;
+    }
+
+    .accent-text {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 60ch;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-weight: 600;
+      transition: transform .15s ease, opacity .15s ease, background .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #08101f;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-side {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 4 / 4.4;
+      border-radius: 20px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      background: #0f1730;
+    }
+
+    .side-box {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+    }
+
+    .side-box h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .meta-list {
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .section {
+      padding: 36px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+    }
+
+    .about-card,
+    .skills-card,
+    .timeline-card,
+    .project-card,
+    .contact-card {
+      padding: 28px;
+    }
+
+    .about-card p,
+    .timeline-item p,
+    .project-card p,
+    .contact-card p {
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .skill {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      padding: 20px;
+      border-left: 3px solid var(--accent-2);
+      background: rgba(255,255,255,0.03);
+      border-radius: 0 16px 16px 0;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 6px;
+      font-size: 1.1rem;
+    }
+
+    .timeline-item .date {
+      color: var(--accent);
+      font-size: 0.92rem;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-tag {
+      display: inline-block;
+      padding: 7px 11px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      background: rgba(94,234,212,0.09);
+      border: 1px solid rgba(94,234,212,0.18);
+      margin-bottom: 14px;
+    }
+
+    .project-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .project-card li { margin-bottom: 8px; }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .link-pill {
+      padding: 11px 14px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .footer {
+      padding: 28px 0 44px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .hero-copy,
+      .hero-side,
+      .about-card,
+      .skills-card,
+      .timeline-card,
+      .project-card,
+      .contact-card {
+        padding: 22px;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-badge">CC</div>
+        <div>
+          <div>Camilo Castellano</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#perfil">Perfil</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" id="perfil">
+      <div class="hero-grid">
+        <article class="card hero-copy">
+          <div class="eyebrow">Portafolio académico y profesional</div>
+          <h1>Camilo <span class="accent-text">Castellano</span></h1>
+          <p class="lead">
+            Analista Programador y consultor senior con amplia experiencia en desarrollo de software,
+            integraciones empresariales y soluciones tecnológicas. Actualmente cursando la Especialización
+            en Ciencia de Datos e Inteligencia Artificial en UTEC, en colaboración con MIT.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/camilo-castellano-a2879254/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <strong>15+</strong>
+              <span>Años de experiencia en tecnología</span>
+            </div>
+            <div class="stat">
+              <strong>3</strong>
+              <span>Proyectos destacados en IA y ML</span>
+            </div>
+            <div class="stat">
+              <strong>2</strong>
+              <span>Certificaciones oficiales NetSuite</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="card hero-side">
+          <img class="profile-photo" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Foto de perfil" />
+          <div class="side-box">
+            <h3>Resumen</h3>
+            <div class="meta-list">
+              <div><strong>Especialización actual:</strong> Ciencia de Datos e Inteligencia Artificial</div>
+              <div><strong>Institución:</strong> UTEC + MIT</div>
+              <div><strong>Base profesional:</strong> Desarrollo, soporte, QA e integraciones</div>
+              <div><strong>Intereses:</strong> Machine Learning, automatización, IA aplicada a negocios</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-head">
+        <div>
+          <h2>Sobre mí</h2>
+          <p>Un perfil con base sólida en software empresarial y foco actual en datos e inteligencia artificial.</p>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <article class="card about-card">
+          <p>
+            Soy Analista Programador y consultor senior con más de quince años de experiencia en el desarrollo
+            de software, integración de sistemas y diseño de soluciones tecnológicas para entornos empresariales.
+            A lo largo de mi carrera trabajé en testing, soporte, desarrollo y liderazgo técnico.
+          </p>
+          <p>
+            Durante más de cinco años me desempeñé en Oracle NetSuite, donde fui referente técnico de múltiples
+            cuentas y responsable del diseño e implementación de soluciones complejas. Actualmente continúo mi
+            desarrollo profesional como Senior Developer y Technical Leader.
+          </p>
+          <p>
+            Mi formación actual se centra en machine learning, análisis de datos, visión por computadora e
+            inteligencia artificial aplicada a problemas reales. Este sitio reúne proyectos desarrollados durante
+            la especialización, mostrando metodología, resultados y aplicaciones prácticas.
+          </p>
+        </article>
+
+        <aside class="card skills-card">
+          <h3>Herramientas y tecnologías</h3>
+          <div class="skills-grid">
+            <div class="skill">Python</div>
+            <div class="skill">Scikit-Learn</div>
+            <div class="skill">PyTorch</div>
+            <div class="skill">Pandas / NumPy</div>
+            <div class="skill">OpenCV / EasyOCR</div>
+            <div class="skill">Jupyter / Colab</div>
+            <div class="skill">SuiteScript / NetSuite</div>
+            <div class="skill">SQL / Integraciones</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section container" id="experiencia">
+      <div class="section-head">
+        <div>
+          <h2>Experiencia y formación</h2>
+          <p>Trayectoria profesional combinada con formación especializada en ciencia de datos e IA.</p>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <div class="card timeline-card">
+          <h3>Experiencia</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="date">2024 - Actualidad</span>
+              <h3>NetSuiteur — Senior Developer</h3>
+              <p>Liderazgo técnico del equipo de desarrollo, revisión de diseño y supervisión de soluciones para clientes.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="date">2019 - 2024</span>
+              <h3>Oracle NetSuite — Senior Principal Consultant</h3>
+              <p>Referente técnico de más de cincuenta cuentas, con foco en arquitectura, diseño funcional-técnico e implementación.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="date">2014 - 2019</span>
+              <h3>Topaz — Senior Analyst</h3>
+              <p>Desarrollo, soporte y mantenimiento de software empresarial con Java, bases de datos y herramientas ETL.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="date">2009 - 2014</span>
+              <h3>Raccon — Tester Senior</h3>
+              <p>Coordinación de testing, definición de casos de prueba y aseguramiento de calidad.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card timeline-card">
+          <h3>Educación y certificaciones</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="date">2025 - Actualidad</span>
+              <h3>UTEC, Uruguay</h3>
+              <p>Especialización en Ciencia de Datos e Inteligencia Artificial.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="date">2012 - 2023</span>
+              <h3>ORT, Uruguay</h3>
+              <p>Analista Programador.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="date">Certificaciones</span>
+              <h3>NetSuite y Celigo</h3>
+              <p>SuiteFoundation, SuiteCloud Developer II e Integrator.io Mastery Level 1.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="proyectos">
+      <div class="section-head">
+        <div>
+          <h2>Proyectos destacados</h2>
+          <p>Tres trabajos desarrollados en el marco de la especialización, orientados a problemas reales de datos e inteligencia artificial.</p>
+        </div>
+      </div>
+
+      <div class="projects-grid">
+        <article class="card project-card">
+          <div class="project-tag">Deep Learning + OCR</div>
+          <h3>Invoice Information Extraction</h3>
+          <p>
+            Sistema para detectar y extraer automáticamente campos clave en facturas, como empresa, dirección,
+            fecha y total, combinando segmentación semántica y OCR.
+          </p>
+          <ul>
+            <li>Dataset ICDAR 2019 SROIE</li>
+            <li>Modelo U-Net para segmentación</li>
+            <li>Extracción de texto con EasyOCR</li>
+          </ul>
+          <div class="links">
+            <a class="link-pill" href="#">Ver proyecto</a>
+            <a class="link-pill" href="#">GitHub</a>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-tag">Machine Learning</div>
+          <h3>Hospital Brasil — No-Show Prediction</h3>
+          <p>
+            Modelo de clasificación para predecir ausencias de pacientes a consultas médicas y aportar evidencia
+            para optimizar la asignación de agendas en sistemas de salud.
+          </p>
+          <ul>
+            <li>Análisis exploratorio y feature engineering</li>
+            <li>Métricas ROC-AUC, PR-AUC y F1</li>
+            <li>Estudio de variables de mayor impacto</li>
+          </ul>
+          <div class="links">
+            <a class="link-pill" href="#">Ver proyecto</a>
+            <a class="link-pill" href="#">GitHub</a>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-tag">Predicción</div>
+          <h3>Uptowork — Freelancer Income Prediction</h3>
+          <p>
+            Proyecto de predicción de ingresos de freelancers a partir de variables de perfil, experiencia y tipo
+            de trabajo, utilizando técnicas de regresión y ensembles.
+          </p>
+          <ul>
+            <li>Comparación entre distintos modelos</li>
+            <li>Evaluación con MAE, RMSE y R²</li>
+            <li>Enfoque aplicado al mercado freelance</li>
+          </ul>
+          <div class="links">
+            <a class="link-pill" href="#">Ver proyecto</a>
+            <a class="link-pill" href="#">GitHub</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="contacto">
+      <div class="section-head">
+        <div>
+          <h2>Contacto y enlaces</h2>
+          <p>Espacios para conectar con mi perfil profesional y acceder a mis repositorios y proyectos.</p>
+        </div>
+      </div>
+
+      <article class="card contact-card">
+        <p>
+          Podés encontrar más información sobre mi trayectoria profesional, experiencia técnica y publicaciones
+          de proyectos en los siguientes enlaces.
+        </p>
+        <div class="links">
+          <a class="link-pill" href="mailto:camilocastellano989@gmail.com">Email</a>
+          <a class="link-pill" href="https://www.linkedin.com/in/camilo-castellano-a2879254/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="link-pill" href="#">GitHub</a>
+          <a class="link-pill" href="#">CVUy</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p>© 2026 Camilo Castellano — Portafolio académico y profesional.</p>
+  </footer>
+</body>
+</html>
