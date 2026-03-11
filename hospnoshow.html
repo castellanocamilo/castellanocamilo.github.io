@@ -1,69 +1,122 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <title>Medical Appointment No-Show Prediction</title>
 
 <style>
 
 body{
-font-family:Arial;
+background:#0b1020;
+font-family: Inter, Arial;
 margin:0;
-background:#f5f7fb;
-}
-
-header{
-height:320px;
-background-image:url("hospital_project.jpg");
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-font-size:42px;
-font-weight:bold;
-text-shadow:2px 2px 10px black;
+color:#e8ecf8;
 }
 
 .container{
-max-width:900px;
+max-width:1000px;
 margin:auto;
 padding:40px;
-background:white;
+}
+
+header{
+
+height:260px;
+
+background:linear-gradient(
+rgba(0,0,0,0.6),
+rgba(0,0,0,0.7)
+),
+
+url("hospital_project.jpg");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:38px;
+font-weight:bold;
+
+}
+
+.card{
+
+background:#121933;
+padding:40px;
+border-radius:16px;
+border:1px solid rgba(255,255,255,0.05);
+
+box-shadow:
+0 10px 40px rgba(0,0,0,0.4);
+
+margin-bottom:30px;
+
 }
 
 h2{
-border-bottom:2px solid #eee;
+border-bottom:1px solid rgba(255,255,255,0.08);
 padding-bottom:10px;
 }
 
+p{
+color:#aeb8d3;
+}
+
+ul{
+color:#aeb8d3;
+}
+
 .github{
-margin-top:30px;
-padding:12px;
-background:#0d6efd;
-color:white;
+
 display:inline-block;
-border-radius:5px;
+
+margin-top:25px;
+padding:12px 18px;
+
+background:linear-gradient(135deg,#5eead4,#60a5fa);
+
+color:#08101f;
+
+border-radius:10px;
+
+font-weight:600;
+
 text-decoration:none;
+
+}
+
+.github:hover{
+opacity:0.9;
 }
 
 </style>
 
 </head>
 
+
 <body>
 
+
 <header>
+
 Medical Appointment No-Show Prediction
+
 </header>
 
+
 <div class="container">
+
+<div class="card">
 
 <h2>Resumen del proyecto</h2>
 
 <p>
-Este proyecto aborda el problema de la ausencia de pacientes a consultas médicas, conocido como <b>no-show</b>. Este fenómeno genera pérdida de recursos hospitalarios y reduce la eficiencia del sistema de salud.
+Este proyecto aborda el problema de la ausencia de pacientes a consultas médicas (no-show). Este fenómeno genera pérdida de recursos hospitalarios y reduce la eficiencia del sistema de salud.
 </p>
 
 <p>
@@ -71,35 +124,57 @@ El objetivo del trabajo es construir un modelo predictivo capaz de estimar la pr
 </p>
 
 <p>
-El dataset utilizado contiene registros históricos de citas médicas en Brasil, incluyendo variables demográficas, clínicas y operativas como edad, comorbilidades, fecha de reserva, barrio y envío de SMS.
+El dataset contiene registros históricos de citas médicas en Brasil con variables demográficas, clínicas y operativas como edad, comorbilidades, barrio y envío de SMS.
 </p>
 
 <p>
-El problema fue formulado como una tarea de <b>clasificación binaria</b>, donde el modelo predice la probabilidad de no-show para permitir intervenciones operativas como confirmaciones o sobre-reservas.
+El problema se formuló como una tarea de clasificación binaria donde el modelo predice la probabilidad de no-show para permitir intervenciones operativas como confirmaciones proactivas o sobre-reservas.
 </p>
+
+</div>
+
+
+<div class="card">
 
 <h2>Metodología</h2>
 
 <ul>
-<li>Limpieza de datos y normalización</li>
+
+<li>Limpieza y normalización de datos</li>
+
 <li>Feature engineering (lead_time_days, age_group, variables calendario)</li>
+
 <li>Entrenamiento de Logistic Regression y HistGradientBoosting</li>
+
 <li>Validación cruzada estratificada</li>
+
 </ul>
+
+</div>
+
+
+<div class="card">
 
 <h2>Resultados</h2>
 
 <p>
-El modelo HistGradientBoosting mostró mejor desempeño en métricas ROC-AUC y PR-AUC. El análisis de importancia de variables indicó que el tiempo entre reserva y consulta (<b>lead_time_days</b>) es el predictor más relevante.
+El modelo HistGradientBoosting mostró mejor desempeño en métricas ROC-AUC y PR-AUC. El análisis de importancia de variables indicó que el tiempo entre reserva y consulta (lead_time_days) es el predictor más relevante.
 </p>
 
 <p>
 El modelo puede utilizarse para priorizar intervenciones operativas como confirmaciones proactivas o re-agendamientos.
 </p>
 
-<a class="github" href="LINK_GITHUB_NOSHOW">Ver código en GitHub</a>
+<a class="github" href="LINK_GITHUB">
+
+Ver código en GitHub
+
+</a>
+
+</div>
 
 </div>
 
 </body>
+
 </html>
